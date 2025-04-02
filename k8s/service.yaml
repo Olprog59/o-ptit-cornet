@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: o-ptit-cornet
+  namespace: test-dev
+spec:
+  selector:
+    app: o-ptit-cornet
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80 # Port exposé par le service
+      targetPort: 80 # Port du conteneur

@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: o-ptit-cornet
+  namespace: test-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: o-ptit-cornet
+  template:
+    metadata:
+      labels:
+        app: o-ptit-cornet
+    spec:
+      securityContext:
+        runAsUser: 101 # UID de nginx
+        runAsGroup: 101
+        fsGroup: 101
+      containers:
+        - name: o-ptit-cornet
+          image: o-ptit-cornet
+          ports:
+            - containerPort: 80
+          # volumeMounts:
+          #   - name: nginx-tmp
+          #     mountPath: /tmp
+          securityContext:
+            readOnlyRootFilesystem: true
+            # capabilities:
+            #   drop: ["ALL"]
+          volumeMounts:
+            - mountPath: /var/run
+              name: tmpfs-1
+            - mountPath: /var/cache/nginx
+              name: tmpfs-2
+            - name: nginx-tmp
+              mountPath: /tmp
+
+      volumes:
+        - name: tmpfs-1
+          emptyDir: {}
+        #   - name: tmpfs-ram
+        #     emptyDir:
+        #       medium: "Memory"
+        - name: tmpfs-2
+          emptyDir: {}
+        - name: nginx-tmp
+          emptyDir: {}

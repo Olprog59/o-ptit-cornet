@@ -2,11 +2,11 @@ import './assets/base.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import App from './App.vue'
-import { useProductStore } from './stores/productStore'
-import { useSettingStore } from './stores/settingStore'
-import { useNetworkStore } from './stores/networkStore'
-import { useScheduleStore } from './stores/scheduleStore'
+import App from '@/App.vue'
+import { useProductStore } from '@/stores/productStore'
+import { useSettingStore } from '@/stores/settingStore'
+import { useNetworkStore } from '@/stores/networkStore'
+import { useScheduleStore } from '@/stores/scheduleStore'
 
 const bootstrap = async () => {
   const app = createApp(App)

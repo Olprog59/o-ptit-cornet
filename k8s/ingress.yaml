@@ -1,0 +1,17 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: o-ptit-cornet-ingress
+  namespace: test-dev
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`o-ptit-cornet.saminthedark.fr`)
+      kind: Rule
+      services:
+        - name: o-ptit-cornet
+          port: 80
+  tls:
+    secretName: saminthedark-tls

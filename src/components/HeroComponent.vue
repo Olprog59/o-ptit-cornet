@@ -57,7 +57,11 @@ const s = computed(() => (setting.length > 0 ? setting[0] : null))
                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                 />
               </svg>
-              <p class="text-yellow-100">{{ s.adresse }}</p>
+              <p class="text-yellow-100">
+                <a :href="'http://maps.google.com/?q=' + s.adresse" target="_blank">{{
+                  s.adresse
+                }}</a>
+              </p>
             </div>
 
             <div class="flex items-center space-x-3">
@@ -75,7 +79,9 @@ const s = computed(() => (setting.length > 0 ? setting[0] : null))
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                 />
               </svg>
-              <p class="text-yellow-100">{{ s.telephone }}</p>
+              <p class="text-yellow-100">
+                <a :href="'tel:' + s.telephone" target="_blank">{{ s.telephone }}</a>
+              </p>
             </div>
 
             <div class="flex items-start space-x-3">
@@ -105,20 +111,22 @@ const s = computed(() => (setting.length > 0 ? setting[0] : null))
 
     <!-- Scroll indicator -->
     <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-8 w-8 text-white"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M19 14l-7 7m0 0l-7-7m7 7V3"
-        />
-      </svg>
+      <a href="#new-products">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-8 w-8 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </svg>
+      </a>
     </div>
   </section>
 </template>

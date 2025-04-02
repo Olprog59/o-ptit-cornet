@@ -19,7 +19,9 @@ const mobileMenuOpen = ref(false)
         <!-- /> -->
         <div v-if="setting.length > 0">
           <div v-for="s in setting" :key="s.Id">
-            <h1 class="text-3xl font-bold text-yellow-100">{{ s.titre }}</h1>
+            <a href="#">
+              <h1 class="text-3xl font-bold text-yellow-100">{{ s.titre }}</h1>
+            </a>
           </div>
         </div>
       </div>
