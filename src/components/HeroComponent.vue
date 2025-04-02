@@ -2,6 +2,7 @@
 import { useSettingStore } from '@/stores/settingStore'
 import { computed } from 'vue'
 import ScheduleComponent from './ScheduleComponent.vue'
+import MySVG from './MySVG.vue'
 
 const settingStore = useSettingStore()
 const { setting } = settingStore
@@ -28,7 +29,8 @@ const s = computed(() => (setting.length > 0 ? setting[0] : null))
         <div
           class="bg-amber-900/80 backdrop-blur-sm p-6 md:p-8 rounded-lg max-w-2xl animate-fadeIn"
         >
-          <h1 class="text-4xl md:text-5xl font-bold text-yellow-100 mb-4">
+          <h1 class="text-4xl md:text-5xl font-bold text-yellow-100 mb-4 flex items-end">
+            <MySVG csv="w-16" />
             {{ s.titre }}
           </h1>
           <h2 class="text-2xl md:text-3xl font-medium text-yellow-200 mb-6">

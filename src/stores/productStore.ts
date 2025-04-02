@@ -19,8 +19,7 @@ export const useProductStore = defineStore('products', () => {
     products.value
       .filter((p) => p.actif)
       .forEach((product) => {
-        const categoryName = product.category.titre
-
+        const categoryName = product.category
         if (!categories.has(categoryName)) {
           categories.set(categoryName, [])
         }

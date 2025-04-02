@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useSettingStore } from '@/stores/settingStore'
 import { ref } from 'vue'
+import MySVG from './MySVG.vue'
 
 const settingStore = useSettingStore()
 const { setting } = settingStore
@@ -20,7 +21,9 @@ const mobileMenuOpen = ref(false)
         <div v-if="setting.length > 0">
           <div v-for="s in setting" :key="s.Id">
             <a href="#">
-              <h1 class="text-3xl font-bold text-yellow-100">{{ s.titre }}</h1>
+              <h1 class="text-3xl font-bold text-yellow-100 flex items-end">
+                <MySVG csv="w-8" />{{ s.titre }}
+              </h1>
             </a>
           </div>
         </div>

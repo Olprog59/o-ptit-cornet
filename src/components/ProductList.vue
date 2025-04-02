@@ -137,7 +137,7 @@ const { nouveautes, produitsAujourdhui, productsByCategory } = productStore
               {{ category }}
             </h3>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
               <div
                 v-for="product in products"
                 :key="product.Id"
@@ -158,7 +158,7 @@ const { nouveautes, produitsAujourdhui, productsByCategory } = productStore
                 </div>
                 <div class="w-2/3 p-4 flex flex-col justify-between">
                   <h4 class="text-lg font-bold text-amber-800 line-clamp-2">{{ product.titre }}</h4>
-                  <p v-if="product.description" class="text-sm text-amber-700 my-2 line-clamp-2">
+                  <p v-if="product.description" class="text-sm text-amber-700 my-2 line-clamp-3">
                     {{ product.description }}
                   </p>
                   <div class="mt-2 flex justify-between items-center">

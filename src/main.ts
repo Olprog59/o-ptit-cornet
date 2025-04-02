@@ -27,6 +27,8 @@ const bootstrap = async () => {
   const scheduleStore = useScheduleStore()
   await scheduleStore.fetchSchedule()
 
+  document.title = settingStore.setting ? settingStore.setting[0].titre : "Ô P'TIT CORNET"
+
   // Une fois les données chargées, montez l'application
   app.mount('#app')
 }
